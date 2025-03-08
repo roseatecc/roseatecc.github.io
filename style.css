@@ -1,13 +1,49 @@
-/* 全局樣式優化 */
+/* 主題變數 */
 :root {
+    /* 亮色主題 */
     --primary-color: #B8A088;
     --secondary-color: #D4C7B0;
     --text-color: #333;
     --bg-color: #F5F5F5;
     --card-bg: rgba(255, 255, 255, 0.9);
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-color: #B8A088;
     --spacing-unit: 1rem;
     --border-radius: 15px;
     --transition: all 0.3s ease;
+}
+
+/* 深色主題 */
+[data-theme="dark"] {
+    --primary-color: #D4C7B0;
+    --secondary-color: #B8A088;
+    --text-color: #E0E0E0;
+    --bg-color: #1A1A1A;
+    --card-bg: rgba(30, 30, 30, 0.9);
+    --nav-bg: rgba(30, 30, 30, 0.9);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --hover-color: #D4C7B0;
+}
+
+/* 主題切換按鈕 */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.theme-toggle:hover {
+    color: var(--hover-color);
+    transform: translateY(-50%) scale(1.1);
 }
 
 body {
@@ -17,6 +53,7 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -27,12 +64,12 @@ body {
 
 /* 導航欄優化 */
 .navbar {
-    background-color: var(--card-bg);
+    background-color: var(--nav-bg);
     padding: var(--spacing-unit);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--shadow-color);
     backdrop-filter: blur(10px);
 }
 
@@ -52,7 +89,7 @@ body {
 
 .nav-links a:hover {
     background-color: var(--secondary-color);
-    color: white;
+    color: var(--bg-color);
 }
 
 /* 標題區域優化 */
@@ -60,7 +97,7 @@ body {
     text-align: center;
     padding: calc(var(--spacing-unit) * 4) 0;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    color: var(--bg-color);
     margin-bottom: calc(var(--spacing-unit) * 4);
 }
 
@@ -80,7 +117,7 @@ body {
     border-radius: var(--border-radius);
     padding: calc(var(--spacing-unit) * 3);
     margin-bottom: calc(var(--spacing-unit) * 4);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px var(--shadow-color);
 }
 
 .bio {
@@ -106,9 +143,9 @@ body {
 }
 
 .skill-tag:hover {
-    transform: translateY(-2px);
     background-color: var(--primary-color);
-    color: white;
+    color: var(--bg-color);
+    transform: translateY(-2px);
 }
 
 /* 專案區塊優化 */
@@ -132,7 +169,7 @@ body {
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px var(--shadow-color);
 }
 
 .project-content {
@@ -146,7 +183,7 @@ body {
 
 .project-content p {
     margin: 0 0 calc(var(--spacing-unit) * 1.5);
-    opacity: 0.9;
+    color: var(--text-color);
 }
 
 /* 聯繫區塊優化 */
@@ -155,6 +192,7 @@ body {
     padding: calc(var(--spacing-unit) * 4) 0;
     border-radius: var(--border-radius);
     margin-bottom: calc(var(--spacing-unit) * 4);
+    box-shadow: 0 5px 15px var(--shadow-color);
 }
 
 .contact-buttons {
@@ -166,7 +204,7 @@ body {
 
 .contact-button {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--bg-color);
     padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2);
     border-radius: var(--border-radius);
     text-decoration: none;
@@ -181,7 +219,7 @@ body {
 /* 頁腳優化 */
 .footer {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--bg-color);
     text-align: center;
     padding: calc(var(--spacing-unit) * 2) 0;
     margin-top: calc(var(--spacing-unit) * 4);
@@ -195,7 +233,7 @@ body {
 }
 
 .social-links a {
-    color: white;
+    color: var(--bg-color);
     text-decoration: none;
     transition: var(--transition);
 }
@@ -253,4 +291,21 @@ body {
 .project-card,
 .contact-section {
     animation: fadeIn 0.6s ease-out;
+}
+
+/* 動畫優化 */
+.theme-toggle,
+.nav-links a,
+.skill-tag,
+.project-card,
+.contact-button {
+    transition: all 0.3s ease;
+}
+
+/* 深色模式過渡動畫 */
+* {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
 }
