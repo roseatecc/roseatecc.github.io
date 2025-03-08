@@ -3,62 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的網站</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>鄭宇哲的個人網站</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <svg class="lines" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <line x1="0" y1="20" x2="100" y2="20" stroke="rgba(0, 0, 0, 0.1)" stroke-width="0.5"/>
-        <line x1="0" y1="40" x2="100" y2="40" stroke="rgba(0, 0, 0, 0.1)" stroke-width="0.5"/>
-    </svg>
-
     <nav class="navbar">
         <div class="nav-links">
-            <a href="#home" class="active"><i class="fas fa-home"></i> 首頁</a>
-            <a href="#about"><i class="fas fa-user"></i> 關於</a>
-            <a href="#projects"><i class="fas fa-project-diagram"></i> 專案</a>
-            <a href="#contact"><i class="fas fa-envelope"></i> 聯絡</a>
+            <a href="#home">首頁</a>
+            <a href="#about">關於我</a>
+            <a href="#projects">專案</a>
+            <a href="#contact">聯繫</a>
         </div>
     </nav>
 
-    <header>
-        <h1>鄭宇哲網站</h1>
-        <p class="subtitle">探索科技與創意的無限可能</p>
+    <header class="header" id="home">
+        <h1>鄭宇哲</h1>
+        <p>科技愛好者 | 創新探索者 | 知識分享者</p>
     </header>
-    
+
     <main>
-        <section id="home" class="container hero-section">
-            <h2>歡迎來到我的網站</h2>
-            <p>這是一個科技感與米色系結合的網站，展現簡約優雅的設計風格。</p>
-            <div class="cta-buttons">
-                <button class="primary-btn" onclick="window.open('https://www.youtube.com/watch?v=3peewPhVSM0', '_blank')">了解更多</button>
-                
-                <button class="secondary-btn" onclick="window.location.href='mailto:contact@example.com'">聯絡我們</button>
-            </div>
-        </section>
-
-        <section id="features" class="container">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>快速部署</h3>
-                    <p>輕鬆建立並發布您的專案</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>創意設計</h3>
-                    <p>美觀且實用的使用者介面</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>安全可靠</h3>
-                    <p>保護您的數據安全</p>
-                </div>
-            </div>
-        </section>
-
         <section id="about" class="container about-section">
             <h2>關於我</h2>
             <div class="profile-container">
@@ -89,7 +54,7 @@
                     <div class="project-content">
                         <h3>YouTube 頻道</h3>
                         <p>分享科技知識和創新想法，幫助更多人了解最新科技趨勢。</p>
-                        <a href="https://www.youtube.com/watch?v=3peewPhVSM0" target="_blank" class="project-link">觀看影片 <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="contact-button">了解更多</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -104,7 +69,7 @@
                     <div class="project-content">
                         <h3>個人網站</h3>
                         <p>使用現代網頁技術打造的個人品牌網站，展示專業形象。</p>
-                        <a href="#" class="project-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="contact-button">查看網站</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -119,48 +84,32 @@
                     <div class="project-content">
                         <h3>技術文章</h3>
                         <p>撰寫技術部落格，分享程式開發經驗和心得。</p>
-                        <a href="#" class="project-link">閱讀文章 <i class="fas fa-book-reader"></i></a>
+                        <a href="#" class="contact-button">閱讀文章</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="container contact-section">
-            <h2>與我聯繫</h2>
-            <div class="contact-content">
-                <p>如果您對我的專案感興趣，或想要討論合作機會，歡迎隨時與我聯繫！</p>
-                <div class="contact-methods">
-                    <a href="mailto:60101max@gmail.com" class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <span>寄送郵件</span>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=3peewPhVSM0" target="_blank" class="contact-method">
-                        <i class="fab fa-youtube"></i>
-                        <span>訂閱頻道</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="newsletter" class="container">
-            <h2>訂閱最新消息</h2>
-            <div class="newsletter-form">
-                <input type="email" placeholder="請輸入您的電子郵件">
-                <button class="primary-btn">訂閱</button>
+            <h2>聯繫我</h2>
+            <div class="contact-buttons">
+                <a href="mailto:contact@example.com" class="contact-button">
+                    <i class="fas fa-envelope"></i> 發送郵件
+                </a>
+                <a href="#" class="contact-button">
+                    <i class="fab fa-youtube"></i> 訂閱頻道
+                </a>
             </div>
         </section>
     </main>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/watch?v=3peewPhVSM0" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-            <p> 2025 鄭宇哲 | 版權所有</p>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
+        <p>&copy; 2025 鄭宇哲. All rights reserved.</p>
     </footer>
 </body>
 </html>
