@@ -15,7 +15,36 @@ function toggleTheme() {
     setTheme(newTheme);
 }
 
-// 初始化主題
+// 導航欄滾動處理
+let lastScrollTop = 0;
+const navbar = document.querySelector('.navbar');
+let isNavbarVisible = true;
+
+function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollDelta = Math.abs(scrollTop - lastScrollTop);
+    const minScrollDelta = 10; // 最小滾動距離才觸發
+
+    // 只在滾動距離超過閾值時處理
+    if (scrollDelta > minScrollDelta) {
+        if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight) {
+            // 向下滾動，隱藏導航欄
+            if (isNavbarVisible) {
+                navbar.style.transform = 'translateY(-100%)';
+                isNavbarVisible = false;
+            }
+        } else {
+            // 向上滾動，顯示導航欄
+            if (!isNavbarVisible) {
+                navbar.style.transform = 'translateY(0)';
+                isNavbarVisible = true;
+            }
+        }
+        lastScrollTop = scrollTop;
+    }
+}
+
+// 初始化
 document.addEventListener('DOMContentLoaded', () => {
     // 檢查用戶之前的偏好設置
     const savedTheme = localStorage.getItem('theme');
@@ -31,4 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // 添加切換按鈕事件監聽器
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', toggleTheme);
+
+    // 添加滾動事件監聽器，使用節流來優化性能
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
 });
